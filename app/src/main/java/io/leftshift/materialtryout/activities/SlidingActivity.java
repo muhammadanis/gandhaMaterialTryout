@@ -18,6 +18,7 @@ package io.leftshift.materialtryout.activities;
 
 import android.app.FragmentTransaction;
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -52,9 +53,14 @@ public class SlidingActivity extends ActionBarActivity {
     }
 
     private void configureToolbar() {
-        Toolbar mainToolbar = (Toolbar) findViewById(R.id.activity_transition_header);
+        Toolbar mainToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mainToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+
         getSupportActionBar().setTitle("Sliding");
+        getSupportActionBar().setHomeAsUpIndicator(upArrow);
 
         mainToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
